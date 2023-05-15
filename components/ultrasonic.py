@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+from time import sleep
 
 class Ultrasonic:
     def __init__(self, trigger_pin, echo_pin):
@@ -19,32 +20,10 @@ class Ultrasonic:
             raise e
 
     def distance(self):
-        """
-        GPIO.output(GPIO_TRIGGER, True)
-        #time.sleep(0.00001)
-        GPIO.output(GPIO_TRIGGER, False)
-
-        # Measure time taken for echo to return
-        start_time = time.time()
-        while GPIO.input(GPIO_ECHO) == 0:
-            start_time = time.time()
-        while GPIO.input(GPIO_ECHO) == 1:
-            end_time = time.time()
-
-        # Calculate distance in cm
-        duration = end_time - start_time
-        distance = duration * 17150
-        distance = round(distance, 2)
-        
-        return distance
-        """
-        
-        
         timeout = 0.1
         StartTime = time.time()
         StopTime = time.time()
         GPIO.output(self.trigger_pin, True)
-        #time.sleep(0.00001)
         GPIO.output(self.trigger_pin, False)
         
         
@@ -77,3 +56,11 @@ class Ultrasonic:
 
     def cleanup(self):
         GPIO.cleanup()
+        
+if __name__ == '__main__':
+    ultrasonic1 = Ultrasonic(trigger_pin = 11, echo_pin = 12)
+    ultrasonic2 = Ultrasonic(trigger_pin = 5, echo_pin = 6)
+    ultrasonic3 = Ultrasonic(trigger_pin = 13, echo_pin = 19)
+    while True:
+        print(ultrasonic3.distance())
+        sleep(1)

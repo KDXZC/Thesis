@@ -4,6 +4,7 @@ from time import sleep
 class Relay:
     def __init__(self, pin):
         self.pin = pin
+        
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.pin, GPIO.OUT)
         GPIO.output(self.pin, GPIO.LOW)
@@ -18,11 +19,18 @@ class Relay:
 
 
 if __name__ == '__main__':
-    relay = Relay(23)
+    relay = Relay(18)
+    
 #     while True:
 #         relay.turn_on()
 #         sleep(5)
 #         relay.turn_off()
 #         sleep(1)
     relay.turn_off()
+    sleep(3)
+    relay.turn_on()
+    sleep(3)
+    relay.turn_off()
+    
+    #GPIO.cleanup()
         

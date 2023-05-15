@@ -9,12 +9,12 @@ class MC38:
 
     def is_closed(self):
         return GPIO.input(self.pin) == GPIO.LOW
-
-#     def __del__(self):
-#         GPIO.cleanup()
+    
+    def __del__(self):
+        GPIO.cleanup()
 
 if __name__ == '__main__':
-    mc38 = MC38(17)
+    mc38 = MC38(25)
     while True:
         print(mc38.is_closed())
         sleep(1)

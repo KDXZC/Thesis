@@ -13,7 +13,7 @@ class RequestHandler:
         #distance = ultrasonic2.distance()
         requested_slot_code = payload.get('slot_code')
         print("Request Handler : requested to open slot =", requested_slot_code)
-        self.hardware_controller.open_slot_door(requested_slot_code)
+        self.hardware_controller.request_pickup(requested_slot_code)
             
             
         """
