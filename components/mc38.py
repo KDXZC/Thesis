@@ -14,7 +14,9 @@ class MC38:
         GPIO.cleanup()
 
 if __name__ == '__main__':
-    mc38 = MC38(25)
+    #mc38 = MC38(17)
+    #mc38 = MC38(25)
+    mc38 = MC38(22)
     while True:
         print(mc38.is_closed())
         sleep(1)

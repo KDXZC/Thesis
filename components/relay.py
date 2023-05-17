@@ -19,15 +19,15 @@ class Relay:
 
 
 if __name__ == '__main__':
-    relay = Relay(18)
+    relay = Relay(21)
+    #relay = Relay(23)
+    #relay = Relay(24)
     
 #     while True:
 #         relay.turn_on()
 #         sleep(5)
 #         relay.turn_off()
 #         sleep(1)
-    relay.turn_off()
-    sleep(3)
     relay.turn_on()
     sleep(3)
     relay.turn_off()

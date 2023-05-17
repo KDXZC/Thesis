@@ -6,7 +6,7 @@ from components.mc38 import MC38
 
 request_handler = RequestHandler()
 
-sub_pickup_topic = "backend/request_pickup"
+sub_pickup_topic = "server/request_pickup"
 pub_pickup_topic = "controller/pickup_status"
 
 def custom_message_handler(client, userdata, msg):
@@ -31,7 +31,8 @@ def custom_message_handler(client, userdata, msg):
         
 
 def main():
-    broker = "172.20.10.2"
+    #broker = "172.20.10.2"
+    broker = "localhost"
     port = 1883
     username = "myhome"
     password = "myraspi"

@@ -11,7 +11,7 @@ class HardwareController:
     def __init__(self):
         GPIO.cleanup()
         
-        self.relay1 = Relay(18)
+        self.relay1 = Relay(21)
         self.relay2 = Relay(23)
         self.relay3 = Relay(24)
         
