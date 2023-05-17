@@ -103,6 +103,7 @@ class HardwareController:
 
                 sleep(1)
                 print("slot_state after sleep :", slot_state1)
+            return True
         
         elif (slot_code == "A02"):
             self.relay2.turn_on()
@@ -131,6 +132,7 @@ class HardwareController:
 
                 sleep(1)
                 print("slot_state after sleep :", slot_state2)
+            return True
     
         elif (slot_code == "A03") :
             self.relay3.turn_on()
@@ -159,4 +161,5 @@ class HardwareController:
 
                 sleep(1)
                 print("slot_state after sleep :", slot_state3)
+            return True
 

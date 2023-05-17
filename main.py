@@ -30,7 +30,7 @@ def custom_message_handler(client, userdata, msg):
         plant_id = payload.get('plant_id')
         
         if (topic == sub_pickup_topic) :
-            result_payload = request_handler.request_pickup(slot_code)
+            result = request_handler.request_pickup(slot_code)
             
             # TODO: pub_pickup_topic: success
             payload = {
