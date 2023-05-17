@@ -23,6 +23,51 @@ class HardwareController:
         self.ultrasonic2 = Ultrasonic(trigger_pin = 5, echo_pin = 6)
         self.ultrasonic3 = Ultrasonic(trigger_pin = 13, echo_pin = 19)
         
+    def request_open_door(self, slot_code):
+        if (slot_code == "A01"):
+            self.relay1.turn_on()
+            print("Hardware Controller : relay1 turned on --> door unlocked")
+            return True
+
+        elif (slot_code == "A02"):
+            self.relay2.turn_on()
+            print("Hardware Controller : relay2 turned on --> door unlocked")
+            return True
+            
+        elif (slot_code == "A03"):
+            self.relay3.turn_on()
+            print("Hardware Controller : relay3 turned on --> door unlocked")
+            return True
+            
+    def request_close_door(self, slot_code):
+        if (slot_code == "A01"):
+            self.relay1.turn_off()
+            print("Hardware Controller : relay1 turned off --> door locked")
+            return True
+
+        elif (slot_code == "A02"):
+            self.relay2.turn_off()
+            print("Hardware Controller : relay2 turned off --> door locked")
+            return True
+            
+        elif (slot_code == "A03"):
+            self.relay3.turn_off()
+            print("Hardware Controller : relay3 turned off --> door locked")
+            return True
+            
+    def request_check_plant(self, slot_code):
+        if (slot_code == "A01"):
+            print("Hardware Controller : ultrasonic1 object detected? =", self.ultrasonic1.detect())
+            return self.ultrasonic1.detect()
+
+        elif (slot_code == "A02"):
+            print("Hardware Controller : ultrasonic2 object detected? =", self.ultrasonic2.detect())
+            return self.ultrasonic2.detect()
+            
+        elif (slot_code == "A03"):
+            print("Hardware Controller : ultrasonic3 object detected? =", self.ultrasonic3.detect())
+            return self.ultrasonic3.detect()
+    
     def request_pickup(self, slot_code):
         slot_state1 = 0
         slot_state2 = 0

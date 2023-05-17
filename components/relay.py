@@ -32,5 +32,5 @@ if __name__ == '__main__':
     sleep(3)
     relay.turn_off()
     
-    #GPIO.cleanup()
+    GPIO.cleanup()
         

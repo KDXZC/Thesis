@@ -5,25 +5,18 @@ class RequestHandler:
         self.hardware_controller = HardwareController()
         pass
 
-    def request_pickup(self, payload):
-        #relay2 = Relay(23)
-        #mc382 = MC38(17)
-        #ultrasonic2 = Ultrasonic(trigger_pin = 5, echo_pin = 6)
-                
-        #distance = ultrasonic2.distance()
-        requested_slot_code = payload.get('slot_code')
-        print("Request Handler : requested to open slot =", requested_slot_code)
-        self.hardware_controller.request_pickup(requested_slot_code)
+    def request_pickup(self, slot_code):
+        print("Request Handler : requested to pickup slot =", slot_code)
+        self.hardware_controller.request_pickup(slot_code)
             
-            
-        """
-        relay2.turn_on()
-        print(ultrasonic2.detect())
-        print(mc382.is_closed())
-        #print(distance)
-        if ultrasonic2.detect() == False and mc382.is_closed():
-            print("In Condition")
-            relay2.turn_off()
-            break
-        sleep(1)
-        """
+    def request_open(self, slot_code):
+        print("Request Handler : requested to open slot =", slot_code)
+        return self.hardware_controller.request_open_door(slot_code)
+        
+    def request_close(self, slot_code):
+        print("Request Handler : requested to close slot =", slot_code)
+        return self.hardware_controller.request_close_door(slot_code)
+        
+    def request_check_plant(self, slot_code):
+        print("Request Handler : requested to check plant =", slot_code)
+        return self.hardware_controller.request_check_plant(slot_code)
